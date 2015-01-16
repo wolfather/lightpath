@@ -13,30 +13,56 @@ html,
 div {
   -moz-transition: all 500ms ease;
   transition: all 500ms ease;
-  background: #87f2fa;
-  /*background: -moz-linear-gradient(top, rgba(135,242,250,1) 0%, rgba(250,220,250,1) 100%);
-    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(135,242,250,1)), color-stop(100%, rgba(250,220,250,1)));
-    background: -webkit-linear-gradient(top, rgba(135,242,250,1) 0%, rgba(250,220,250,1) 100%);
-    background: -o-linear-gradient(top, rgba(135,242,250,1) 0%, rgba(250,220,250,1) 100%);
-    background: -ms-linear-gradient(top, rgba(135,242,250,1) 0%, rgba(250,220,250,1) 100%);
-    background: linear-gradient(to bottom, rgba(135,242,250,1) 0%, rgba(250,220,250,1) 100%);*/
 }
-div #togglePlay {
+#debug {
   display: inline-block;
-  width: 20%;
-  height: 20%;
-  text-align: center;
-  text-decoration: none;
-  font: 700 2em/2em Arial, sans-serif;
+  padding: 3em;
   color: #fff;
-  background: #000;
+  background: #333;
 }
-.oyeah {
-  background: #ff7cd8;
-  /*background: -moz-linear-gradient(top, rgba(255,124,216,1) 0%, rgba(163,0,163,1) 100%);
-    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,124,216,1)), color-stop(100%, rgba(163,0,163,1)));
-    background: -webkit-linear-gradient(top, rgba(255,124,216,1) 0%, rgba(163,0,163,1) 100%);
-    background: -o-linear-gradient(top, rgba(255,124,216,1) 0%, rgba(163,0,163,1) 100%);
-    background: -ms-linear-gradient(top, rgba(255,124,216,1) 0%, rgba(163,0,163,1) 100%);
-    background: linear-gradient(to bottom, rgba(255,124,216,1) 0%, rgba(163,0,163,1) 100%);*/
+.content {
+  padding: 1em;
+  margin: 0 auto;
+  width: 90%;
+  -webkit-column-count: 3;
+  -moz-column-count: 3;
+  column-count: 3;
+  -webkit-column-rule: 2px outset #fcc;
+  -moz-column-rule: 2px outset #ccc;
+  column-rule: 2px outset #ccc;
+}
+.content p {
+  margin: 0 0 .8em;
+}
+@media screen and (min-width: 230px) and (max-width: 430px) {
+  .content {
+    -webkit-column-count: 1;
+    -moz-column-count: 1;
+    column-count: 1;
+  }
+}
+@media screen and (min-width: 431px) and (max-width: 950px) {
+  .content {
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
+    column-count: 2;
+  }
+}
+@media screen and (luminosity: normal) {
+  .content {
+    background-color: #ddd;
+    color: #111;
+  }
+}
+@media screen and (luminosity: dim) {
+  .content {
+    background-color: #444;
+    color: #fff;
+  }
+}
+@media screen and (luminosity: washed) {
+  .content {
+    background-color: #fff;
+    color: #333;
+  }
 }
