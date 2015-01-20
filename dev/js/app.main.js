@@ -1,43 +1,55 @@
-var audio = document.querySelector('#audio'),
+var video = document.querySelector('#youtubeplayer'),
     visual = document.querySelector('#visual'),
     light,
     debug = document.querySelector('#debug'),
-    music = {
-        light : '../audio/deepershadeofsoul.mp3',
-        dark : '../audio/letsgetiton.mp3'
+    videoUrl = {
+        day : "M7lc1UVf-VE",
+        night : "pq3ji_kjAUE"
+    },
+    youtubeSrc = function (videoId) {
+        return "https://www.youtube.com/embed/" + videoId + "?autoplay=1&controls=0&disablekb=1&enablejsapi=1&fs=0&playsinline=1&rel=0&showinfo=0";
     };
 
 
     window.addEventListener("devicelight", function (event) {
         light = event.value;
-        console.log(light);
+        //console.log(light);
+        
+        //visual debug
         debug.textContent = light;
         
-        if(light <= 30){
-            //audio.src = music.dark;
-            //audio.play();
-            
-            console.log("dark", light);
-            visual.toggleClass('dark');
-        }
-        if(ligth <= 90){
-            console.log('middle');
-            visual.toggleClass('dim');
+        if(light >= 50){
+            video.src = youtubeSrc(videoUrl.day);
+            console.log("bright", light);
+            visual.classList.add('oyeah');
         }
         else{
-            //audio.src = music.light;
-            //audio.play();
-            //audio.pause();
-            
-            console.log("bright", light);
-            visual.toggleClass('light');
-            //visual.classList.remove('oyeah');
+            video.src = youtubeSrc(videoUrl.night);
+
+            console.log("dark", light);
+            if( visual.classList.contains('oyeah') ){
+                visual.classList.remove('oyeah');
+            }
         }
 
     });
 
-//togglePlay = document.querySelector('#togglePlay');
-//togglePlay.addEventListener('click', function(){
-//}, false);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

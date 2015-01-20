@@ -1,8 +1,3 @@
-#audio {
-  position: absolute;
-  height: 0;
-  width: 0;
-}
 body,
 html,
 #visual {
@@ -10,43 +5,28 @@ html,
   padding: 0;
   margin: 0;
 }
-div {
+#visual {
+  padding-top: 5%;
   -moz-transition: all 500ms ease;
   transition: all 500ms ease;
+  background: #ebf2ff;
+}
+.oyeah {
+  background: #ff7cd8;
 }
 #debug {
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin: 0;
   display: inline-block;
   padding: 3em;
   color: #fff;
   background: #333;
 }
-.content {
-  padding: 1em;
+.youtubeplayer {
   margin: 0 auto;
-  width: 90%;
-  -webkit-column-count: 3;
-  -moz-column-count: 3;
-  column-count: 3;
-  -webkit-column-rule: 2px outset #fcc;
-  -moz-column-rule: 2px outset #ccc;
-  column-rule: 2px outset #ccc;
-}
-.content p {
-  margin: 0 0 .8em;
-}
-@media screen and (min-width: 230px) and (max-width: 430px) {
-  .content {
-    -webkit-column-count: 1;
-    -moz-column-count: 1;
-    column-count: 1;
-  }
-}
-@media screen and (min-width: 431px) and (max-width: 950px) {
-  .content {
-    -webkit-column-count: 2;
-    -moz-column-count: 2;
-    column-count: 2;
-  }
+  display: block;
 }
 @media screen and (luminosity: normal) {
   .content {

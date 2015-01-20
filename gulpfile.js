@@ -7,8 +7,6 @@ var gulp = require('gulp'),
 
 gulp.task('default',['jade','less', 'jsmin', 'watch'], function() {});
 
-//gulp.task('default',['jade','watch'], function (){});
-
 
 gulp.task('jade', function(){
     return gulp.src('dev/html/*.jade')
@@ -30,12 +28,6 @@ gulp.task('less', function () {
         .pipe(less())
         .pipe(gulp.dest('build/css'))
 });
-
-/*gulp.task('less', function() {
-    gulp.src("./prod/less/*.less")
-        .pipe(less())
-        .pipe(gulp.dest('build/css'));
-});*/
 
 
 gulp.task('watch', function() {
