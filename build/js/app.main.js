@@ -1,3 +1,8 @@
 
-var video=document.querySelector('#youtubeplayer'),visual=document.querySelector('#visual'),light,debug=document.querySelector('#debug'),videoUrl={day:"M7lc1UVf-VE",night:"pq3ji_kjAUE"},youtubeSrc=function(videoId){return"https://www.youtube.com/embed/"+videoId+"?autoplay=1&controls=0&disablekb=1&enablejsapi=1&fs=0&playsinline=1&rel=0&showinfo=0";};window.addEventListener("devicelight",function(event){light=event.value;debug.textContent=light;if(light>=50){video.src=youtubeSrc(videoUrl.day);console.log("bright",light);visual.classList.add('oyeah');}
-else{video.src=youtubeSrc(videoUrl.night);console.log("dark",light);if(visual.classList.contains('oyeah')){visual.classList.remove('oyeah');}}});
+function qs(qs){return document.getElementById(qs)}
+var debug=qs('debug'),light;function PlaySound(){this.audioCtx=new(window.AudioContext||window.webkitAudioContext)();this.soundOsc=this.audioCtx.createOscillator();this.soundOsc.type='sine';this.soundOsc.detune.value=210;}
+PlaySound.prototype={SetFrequency:function(param){this.soundOsc.frequency.value=(parseInt(param)*50);},Play:function(){this.soundOsc.start(this.audioCtx.currentTime);this.soundOsc.connect(this.audioCtx.destination);},Stop:function(){this.soundOsc.stop(this.audioCtx.currentTime);this.soundOsc.disconnect(this.audioCtx.destination);console.log('sound was finished');}};function UiVisual(){this.element=document.getElementById('visual');}
+UiVisual.prototype={SetBgColor:function(param){this.element.style.background='rgb('+param+','+param+','+param+')';}};var sound,isPlaying=0,bgScreen=new UiVisual();var playBtn=document.getElementById('play'),stopBtn=document.getElementById('stop');playBtn.addEventListener('click',function(){if(isPlaying){isPlaying=0;sound.Stop();sound=null;console.log('stop');removeEventListener("devicelight",function(event){console.log('removed')});}
+else{isPlaying=1;sound=new PlaySound();sound.Play();console.log('play');addEventListener("devicelight",function(event){light=event.value;debug.textContent=light;sound.SetFrequency(light);bgScreen.SetBgColor(light);if(light>=100){sound.Stop();}
+else{}});}
+console.log(isPlaying);});
